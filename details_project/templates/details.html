@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+      <div class="col-lg-4 mx-auto shadow p-0">
+      <div class="col">
+        <div class="border">
+          {% if obj|length == 0 %}
+
+          <div class="p-4">
+            <br>
+            <br>
+            <div class="alert alert-info text-center">
+              <p class="" style="font-size: 30px;">list is empty</p>
+            </div>
+            <br>
+            <br>
+          </div>
+          {%else%}
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>NAME</th>
+                  <th>Skill</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for t in obj %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{t.name}}</td>
+                  <td>{{t.skill}}</td>
+                  <td>{{t.description}}</td>
+                </tr>
+                {%endfor%}
+
+
+              </tbody>
+            </table>
+          </div>
+          {%endif%}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
